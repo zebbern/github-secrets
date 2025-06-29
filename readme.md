@@ -1,5 +1,85 @@
 
-### Here is a guide on how to style your readme different from anyone else
+
+
+<h2 align="center">Guide on how to style your readme different from anyone else</h2>
+
+<b>Bold</b>
+
+<i>Italic</i>
+
+<s>Strikethrough</s>
+
+<strong>Strong</strong>
+
+<em>Emphasis</em>
+
+<del>Deleted</del>
+
+<ins>Inserted</ins>
+
+<mark>Highlighted</mark>
+
+<sup>Superscript</sup>
+
+<sub>Subscript</sub>
+
+<code>Code</code>
+
+<pre>Preformatted</pre>
+
+<kbd>Keyboard</kbd>
+
+<samp>Sample output</samp>
+
+<table><tr><td>Boxed text</td></tr></table>
+
+<ul><li>Unordered list</li></ul>
+<ol><li>Ordered list</li></ol>
+<dl><dt>Term</dt><dd>Definition</dd></dl>
+
+
+<details>
+<summary>title of the content</summary>
+
+content body
+
+```json
+{
+  support: "codeblock to"
+}
+```
+</details>
+
+> **Sir Charles Antony Richard Hoare**
+>> *"Long quote text here..."*
+
+
+<table>
+  <tr>
+    <td align="center"><b>example</b></td>
+    <td><img src="zebbernpanda.png" width="50"></td>
+  </tr>
+</table>
+
+
+<ruby>v2.1.0<rt>🚀 Latest Release</rt></ruby>
+<ruby>Beta<rt>⚠️ Testing Phase</rt></ruby>
+<ruby>Stable<rt>✅ Production Ready</rt></ruby>
+
+<ruby>@username<rt>👨‍💻 Lead Developer</rt></ruby>
+<ruby>@designer<rt>🎨 UI/UX Designer</rt></ruby>
+
+<ruby>MIT<rt>📄 Open Source License</rt></ruby>
+<ruby>GPL<rt>🔒 Copyleft License</rt></ruby>
+
+<ruby>API<rt>Application Programming Interface</rt></ruby>
+<ruby>REST<rt>Representational State Transfer</rt></ruby>
+<ruby>JWT<rt>JSON Web Token</rt></ruby>
+<ruby>CRUD<rt>Create Read Update Delete</rt></ruby>
+
+<ruby>漢<rt>かん</rt></ruby>
+
+<hr>
 
 <kbd>
 <h1><code>H1</code></h1>
@@ -299,3 +379,29 @@ example.sh
 ### Now run `example -h` anywhere in terminal
 
 </div>
+</div>
+</div>
+
+<br>
+<br>
+
+### You can also use these to get a users attention:
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]  
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+
+
+
+
