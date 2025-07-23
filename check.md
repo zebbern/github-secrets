@@ -5,7 +5,7 @@ Testing GitHub Camo proxy SSRF vulnerability.
 ## Basic SSRF Confirmation
 <picture>
   <source srcset="http://164.90.187.218:8080/ssrf-test-1-basic">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="Basic Test">
+  <img src="hellp.jpg" alt="Basic Test">
 </picture>
 
 ## Timing Attack Test  
