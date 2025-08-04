@@ -1,4 +1,4 @@
-
+[![Bounties Earned](https://img.shields.io/badge/Bounties%20Earned-%24614-blue?style=for-the-badge)](https://hackerone.com/zebbern)
 
 
 <h2 align="center">Guide on how to style your readme different from anyone else</h2>
