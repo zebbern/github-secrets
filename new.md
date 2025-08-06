@@ -1,5 +1,5 @@
 
-![HackerOne](https://img.shields.io/badge/-%23494649?style=flat-square&logo=hackerone&logoColor=white)
+![HackerOne](https://img.shields.io/badge/%23494649?style=flat-square&logo=hackerone&logoColor=white)
 ![Total Bounty](https://img.shields.io/badge/Total%20Bounty-$1234-blue?style=flat-square)
 
 
